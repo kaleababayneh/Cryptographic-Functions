@@ -1,26 +1,30 @@
 def extended_eculidean(a,b):
-    placeholder = 1
-    r = [a,b,placeholder]
-    s = [1,0,placeholder]
-    t = [0,1,placeholder]
-    print("r","s","k")
-    k = 2
-    while(r[k-2] != 0):
-        k = 2
-        rc = r
-        sc = s
-        tc = t
-       
-        q = rc[k-2] // rc[k-1]
-        r[k] = rc[k-2] % rc[k-1]
-        s[k] = sc[k-2] - q * sc[k-1]
-        t[k] = tc[k-2] - q * tc[k-1]
-        k = k + 1
-        k = k % 3
-        
-        print(r)
+    reverse = False
+    if (a < b):
+        b,a = a,b
+        reverse = True
+
+    r0,r1,rk = a,b,1
+    s0,s1,sk = 1,0,1
+    t0,t1,tk = 0,1,1
+
+    while(rk != 0):
+        q = r0 // r1
+        rk = r0 % r1
+        sk = s0 - q * s1
+        tk = t0 - q * t1
+
+        r0,r1 = r1,rk
+        s0,s1 = s1,sk
+        t0,t1 = t1,tk
+
+    if (reverse):
+        return [r0, t0, s0]
     
-    return r[k-2]
+    return [r0, s0, t0]
 
      
-extended_eculidean(12,5)
+def inverse_mod(a,b):
+    a1,b1,c1 = extended_eculidean(a,b)
+    return b1
+
