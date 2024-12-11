@@ -1,6 +1,6 @@
 from inverse_mod import inverse_mod
 
-print(inverse_mod(7,5))
+print(inverse_mod(2,9739))
 
 def add (first_point, second_point, a , field):
 
@@ -38,4 +38,4 @@ def modp(n,p):
     return n % p
 
 
-print(add([8592, 2572],[2130, 2999],497,9739))
+#print(add([8592, 2572],[2130, 2999],497,9739))

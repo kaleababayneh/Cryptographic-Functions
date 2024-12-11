@@ -78,5 +78,5 @@ def scalar_mul(first_point, a ,n, field):
 
     return R
 
-print(scalar_mul([2339,2213], 497,7863, 9739))
+print(scalar_mul([4726, 6287], 497,6534, 9739))
  
